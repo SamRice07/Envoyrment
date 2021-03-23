@@ -1,0 +1,44 @@
+<%- include('sidebar') -%> 
+
+<head>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<div id="Classroom">
+
+</div>
+
+<script>
+
+    var codes = localStorage.getItem('code')
+    var code = codes.replaceAll("\"", "")
+
+    window.addEventListener('DOMContentLoaded', async () =>
+    {
+        var classDiv = document.getElementById('Classroom');
+        const classHtml = await fetch('/getHtml', { 
+            method: 'POST', 
+            body: JSON.stringify({ code }),
+            headers: {'Content-Type': 'application/json'}
+            });        
+        
+        const classroomHtml = await classHtml.json();
+        const classroomBeforeSplit = JSON.stringify(classroomHtml);
+        if(classroomHtml)
+        {
+            const classTemp = classroomBeforeSplit.replaceAll("}", "");
+            const classTempNoSlash = classTemp.replaceAll("\\", "");
+            const classTempNoN = classTempNoSlash.replace('{"HTML":"', ""); 
+            const ClassroomNoQuotes = classTempNoN.slice(1, -1);
+            const Classroom = ClassroomNoQuotes.slice(1, -1);
+            classDiv.innerHTML = Classroom;
+            console.log(Classroom);
+        }
+    })
+        
+    function edit()
+    {
+        location.assign('/createTemplate');
+    }
+    
+</script>

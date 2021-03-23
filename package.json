@@ -1,0 +1,43 @@
+{
+  "name": "node-express-jwt-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "@trendmicro/react-sidenav": "^0.5.0",
+    "aes-js": "^3.1.2",
+    "bcrypt": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "crypto-js": "^4.0.0",
+    "cryptr": "^6.0.2",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.14",
+    "mongoose-auto-increment": "^5.0.1",
+    "mongoose-sequence": "^5.3.1",
+    "node-localstorage": "^2.1.6",
+    "react": "^17.0.1",
+    "react-pro-sidebar": "^0.5.0",
+    "reactjs": "^1.0.0",
+    "short-unique-id": "^3.2.3",
+    "store": "^2.0.12",
+    "validator": "^13.5.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamshaunjp/node-express-jwt-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamshaunjp/node-express-jwt-auth/issues"
+  },
+  "homepage": "https://github.com/iamshaunjp/node-express-jwt-auth#readme"
+}

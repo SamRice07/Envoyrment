@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div class="wrapper hover_collapse">
+	<div class="top_navbar">
+        <div class="menu">
+			<div class="hamburger">
+				<i class="fas fa-bars"></i>
+			</div>
+            <a href="/dashboard"><img src="/LOGO.png" alt="Logo" style="height: 100px; width: 100px; position: relative; right: 650px;"></a>
+            <div class="logo"><span style="color: green; position: relative; right: 1325px; font-size: xx-large;">Envoyrment</span></div>
+        </div>
+	</div>  
+
+	<div class="sidebar">
+		<div class="sidebar_inner">
+		<ul>
+			<li>
+				<a href="/dashboard">
+					<span class="icon"><i class="fas fa-th-large"></i></span>
+					<span class="text">Dahsboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="/construction">
+					<span class="icon"><i class="fas fa-book"></i></span>
+					<span class="text">Courses</span>
+				</a>
+			</li>
+			<li>
+				<a href="/construction">
+					<span class="icon"><i class="fas fa-calendar-alt"></i></span>
+					<span class="text">Calender</span>
+				</a>
+			</li>
+			<li>
+				<a href="/construction">
+					<span class="icon"><i class="fas fa-graduation-cap"></i></span>
+					<span class="text">Grades</span>
+				</a>
+			</li>
+			<li>
+				<a href="/construction">
+					<span class="icon"><i class="fas fa-comments"></i></span>
+					<span class="text">Messages</span>
+				</a>
+			</li>
+			<li>
+				<a href="/construction">
+					<span class="icon"><i class="fas fa-question-circle"></i></span>
+					<span class="text">Help</span>
+				</a>
+			</li>
+		</ul>
+		</div>
+		<div class="overlay" id="overlay"></div>
+	</div>
+</div>
+
+</div>
+
+
+
+<script>
+    var hamburger = document.querySelector(".hamburger");
+    var wrapper = document.querySelector(".wrapper");
+	var overlay = document.getElementById("overlay");
+	var overlayClick = document.querySelector("#overlay");
+	var sidebar = document.querySelector(".sidebar");
+	var displayed = false;
+    function expandMenu()
+    {
+        hamburger.closest(".wrapper").classList.toggle("click_collapse");
+	    hamburger.closest(".wrapper").classList.toggle("hover_collapse"); 
+		if(!displayed)
+		{
+			overlay.style.display = "block";
+			displayed = !displayed;
+		}
+		else if(displayed)
+		{
+			overlay.style.display = "none";
+			displayed = !displayed;		
+		}
+    }
+     hamburger.addEventListener("click", expandMenu);
+	 overlayClick.addEventListener("click", expandMenu);
+</script>
+</body>
+</html>

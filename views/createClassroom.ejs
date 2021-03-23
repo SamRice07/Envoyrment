@@ -1,0 +1,41 @@
+<%- include('sidebar') -%> 
+
+<form action="/CreateClassroom" style="bottom: 400px;">
+  <label for="title">Title</label>
+  <input type="text" name="title" placeholder="Your Class Title"/>
+  <label for="subject">Subject</label>
+  <input type="text" name="subject" placeholder="Your Class Subject"/>
+  <button>Create</button> 
+</form>
+
+<script>
+    const ClassroomForm = document.querySelector('form') 
+    ClassroomForm.addEventListener('submit', async (L) => {
+        L.preventDefault();
+
+       const title = ClassroomForm.title.value;
+       const subject = ClassroomForm.subject.value;
+
+       try
+       {
+            const classroomPost = await fetch('/CreateClassroom', { 
+                method: 'POST', 
+                body: JSON.stringify({ title, subject }),
+                headers: {'Content-Type': 'application/json'}
+            });
+            const classroomData = await classroomPost.json();
+           if(classroomData.classroom)
+           {
+               location.assign('/createTemplate');
+               var code = JSON.stringify(classroomData.ClassCode);
+               localStorage.setItem("title", title);
+               localStorage.setItem("subject", subject)
+               localStorage.setItem("code", code)
+           }
+       }
+       catch(err)
+       {
+           console.log(err)
+       }
+    });
+</script>

@@ -1,0 +1,47 @@
+<%- include('sidebar') -%> 
+
+<form action="/JoinClassroom" style="position: relative; bottom: -100px;">
+    <label for="Code">Classroom Code</label>
+    <input type="text" name="Code"  placeholder="Class Code"/>
+    <div class="code error"></div>
+    <button>Join</button> 
+  </form>
+
+  <script>
+    const joinForm = document.querySelector('form');
+    const codeError = document.querySelector('.code.error');
+
+    joinForm.addEventListener('submit', async (L) => {
+        L.preventDefault();
+
+        codeError.textContent = '';
+       var classroomCode = joinForm.Code.value;
+       try
+       {
+            const joinPost = await fetch('/JoinClassroom', { 
+                method: 'POST', 
+                body: JSON.stringify({classroomCode}),
+                headers: {'Content-Type': 'application/json'}
+            });
+            const joinData = await joinPost.json();
+           if(joinData.title)
+           {
+               location.assign('/Classroom');
+               var title = JSON.stringify(joinData.title);
+               var subject = JSON.stringify(joinData.subject);
+               var code = JSON.stringify(joinData.ClassCode);
+               localStorage.setItem("title", title);
+               localStorage.setItem("subject", subject);
+               localStorage.setItem("code", code);
+           }
+           else if(joinData.errors)
+           {
+            codeError.textContent = joinData.errors.code;
+           }
+       }
+       catch(err)
+       {
+           console.log(err)
+       }
+    });
+  </script>
