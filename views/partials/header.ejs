@@ -1,0 +1,29 @@
+<html lang="en">
+<div class="header">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <% if (user) { %>
+        <div class="wrapper hover_collapse">
+          <div class="top_navbar">
+                <a href="/dashboard"><img src="/LOGO.png" alt="Logo" style="height: 50; width: 50; position: relative; left: 80;"></a>
+                <div class="logo" style="position: relative; left: 60;"><span>Envoyrment</span></div>
+              <div class="menu">
+              </div>
+            </div>
+          </div> 
+          <% } else { %>
+        <li><a href="/login" style="position: relative; top: -40; left: 1620;" class="btn">Log in</a></li>
+        <li><a href="/signup" class="btn" style="position: relative; top: -40; left: 1630;">Sign up</a></li>
+        <img src="/LOGO.png" alt="Logo" style="height: 125; width: 125; position: relative; top: -40; right: 310;">
+      <% } %> 
+    </ul>
+  </nav>  
+  </body>
+</div>
