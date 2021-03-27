@@ -4,8 +4,9 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 
-<div id="Classroom">
-
+<div id="Classroom"></div>
+<div id="test">
+    <button style="position: relative; top: 450px; left: 100px;" onclick="assignmentRedirect();">Create Assignment</button>
 </div>
 
 <script>
@@ -14,7 +15,7 @@
     var code = codes.replaceAll("\"", "")
 
     window.addEventListener('DOMContentLoaded', async () =>
-    {
+    {   
         var classDiv = document.getElementById('Classroom');
         const classHtml = await fetch('/getHtml', { 
             method: 'POST', 
@@ -41,4 +42,24 @@
         location.assign('/createTemplate');
     }
     
+
+    async function createAssignment()
+    {
+        try
+       {
+            const createAssignment = await fetch('/createAssignment', { 
+                method: 'POST', 
+                body: JSON.stringify({classroomCode: code}),
+                headers: {'Content-Type': 'application/json'}
+            });
+       }
+       catch(err)
+       {
+           console.log(err)
+       }
+    }
+    async function assignmentRedirect()
+    {
+        location.assign('/createAssignment')
+    }
 </script>

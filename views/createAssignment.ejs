@@ -1,0 +1,100 @@
+<%- include('sidebar') -%> 
+
+<div id="templateHtml">
+<head>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<div id="editableTemp">
+    <form action="/testerwester" style="width: 90%; left: 5%;" id="postHtml">
+        <input type="text" placeholder="Title" style="font-size: x-large;" id="editTitle">
+        <textarea type="textarea" placeholder="Assingment Info" style="font-size: x-large;" id="editAssignmentInfo"></textarea>
+        <input type="file" style="display: block; width: 50%; float: right; height: 60px;" accept="image/*" id="editImage">
+        <button>Save</button>
+    </form>
+    <button onclick="preview()" style="position: relative; left: 46%; top: 575px;">Preview</button>
+</div>
+<div id="finalTemp" style="display: none; width: 90%;">
+    <div id="TopDiv">
+        <h1 style="font-size: xx-large;" id="finalTitle"></h1>
+    </div>
+    <div id="infoDiv">
+        <h2 id="finalInfo"></h2>
+    </div>
+    <img id="finalImage">
+    <div id="borderLine"></div>
+    <form action="/testerwester" style="position: relative;margin-top: 12.5%; left: 100px;width: 90%;" id="postHtml">
+        <input type="file" id="SS">
+        <button >Submit</button>
+    </form>
+    <button onclick="edit()" id="EditButton">Edit</button>
+</div>
+<script>
+    //gets form
+    const form = document.querySelector('form');
+    //gets code from localstorage
+    var codes = localStorage.getItem('code')
+    var code = codes.replaceAll("\"", "")
+    function preview()
+    {
+        //gets title textbox value
+        var editTitle = document.getElementById("editTitle").value;
+        //gets info textbox value
+        var editInfo = document.getElementById('editAssignmentInfo').value;
+        //gets the url
+        var editImage = document.getElementById('editImage').files[0];
+        //init reader
+        var reader  = new FileReader();
+        //gets the whole forms div
+        const editTemp = document.getElementById("editableTemp");
+        //gets the whole preview div
+        const finalTemp = document.getElementById("finalTemp");
+        //gets final image
+        var finalImage = document.getElementById('finalImage');
+        //makes the title of the classroom equal to the value of the title textbox
+        document.getElementById("finalTitle").innerHTML = editTitle;
+        //makes title of edit to title of final
+        document.getElementById('finalInfo').innerHTML = editInfo;
+        //makes yt video url equal to url
+        reader.addEventListener("load", function () 
+        {
+            finalImage.src = reader.result;
+        }, false);
+
+        if (editImage) 
+        {
+            reader.readAsDataURL(editImage);
+        }
+        //makes the form and everything else in the editDiv invisble
+        editTemp.style.display = "none";
+        //makes the final classroom shown
+        finalTemp.style.display = "inline";
+        
+    }
+    function edit()
+    {
+        //gets the Title value
+        var finalTitle = document.getElementById("finalTitle").value;
+        //gets the whole forms Div
+        const editTemp = document.getElementById("editableTemp");
+        //gets info textbox value
+        var finalInfo = document.getElementById('finalInfo').value;
+        //gets the whole final classrooms Div
+        const finalTemp = document.getElementById("finalTemp");
+        //makes the title textbox equal to the value of the final clasrooms title (ie. fills out the textbox so teacher doesnt have to reinput it)
+        document.getElementById("editTitle").innerHTML = finalTitle;
+        //makes title of edit to title of final
+        document.getElementById('editAssignmentInfo').innerHTML = finalInfo;
+        //makes the final Div invisable
+        finalTemp.style.display = "none";
+        //makes the edit div shown
+        editTemp.style.display = "inline";
+    }
+
+    document.getElementById('editAssignmentInfo').addEventListener("input", function()
+    {
+        this.style.height = 'inherit';  
+        var height = this.scrollHeight;
+        this.style.height = height + 'px';
+    })
+</script>
+</div>
