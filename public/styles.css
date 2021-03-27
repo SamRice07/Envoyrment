@@ -1,0 +1,512 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans:600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap");
+
+body{
+  margin: 20px 40px;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  background: #fafafa;
+}
+h1, h2, h3, h4, ul, li, a, p, input, label, button, div, footer{
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  color: #444;
+}
+ul{
+  list-style-type: none;
+}
+a{
+  text-decoration: none;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 120px;
+}
+nav ul{
+  display: flex;
+  align-items: center;
+}
+nav li{
+  margin-left: 20px;
+}
+nav li a{
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.8em;
+  display: block;
+  padding: 10px 16px;
+  letter-spacing: 2px;
+}
+.btn{
+  border-radius: 36px;
+  background: #32CD32;
+}
+form h2{
+  font-size: 2.4em;
+  font-weight: 900;
+  margin-bottom: 40px;
+}
+form{
+  width: 360px;
+  margin: 0 auto;
+  padding: 30px;
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  background: white;
+}
+input{
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 1em;
+  width: 100%;
+}
+label{
+  display: block;
+  margin: 20px 0 10px;
+}
+button{
+  margin-top: 30px;
+  border-radius: 36px;
+  background: #FEE996;
+  border:0;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.8em;
+  display: block;
+  padding: 10px 16px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+.error{
+  color: #ff0099;
+  margin: 10px 2px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+header{
+  display: flex;
+  align-items: center;
+}
+header img{
+  width: 250px;
+  margin-right: 40px;
+}
+header h2{
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+header h3{
+  font-size: 1.6em;
+  margin-bottom: 10px;
+  margin-left: 2px;
+  color: #999;
+}
+header .btn{
+  margin-top: 20px;
+  padding: 12px 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 0.8em;
+}
+.recipes{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 30px;
+  row-gap: 80px;
+  margin: 80PX AUTO;
+  max-width: 1200px;
+}
+.recipe{
+  display: inline-block;
+  border-radius: 20px;
+  background: white;
+  position: relative;
+  text-align: center;
+  padding: 0 20px 30px 20px
+}
+.recipe img{
+  width: 100px;
+  margin: -30px auto 20px;
+}
+footer{
+  text-align: center;
+  margin-top: 120px;
+  color: #aaa;
+}
+.logo img
+{
+	right: 500px;
+	position: relative; 
+}
+.Home-Page
+{
+  height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url(background.jpg);
+    background-position: center;  
+    background-size: cover;
+    position: absolute;
+}
+.header
+{
+  display: block;
+  height: 80;
+}
+.constructionImage
+{
+	position:sticky;
+	left: 100px;
+	z-index: 1;
+}
+#imageSrc
+{
+	z-index: 1;
+}
+#postHtml
+{
+	z-index: 2;
+	position:absolute;
+	top: 80px;
+	right: 1550px;
+}
+#TopDiv	
+{
+	z-index: 2;
+	position:absolute;
+	right: 1550px;
+	right: -10px;
+	width: 100%;
+	text-align: center;
+}
+#finalTitle
+{
+	position: absolute;
+	padding: 30px;
+	border-radius: 10px;
+	top: 15px;
+	width: 99%;
+	margin: 0 auto;
+}
+#finalCode
+{
+	position: absolute;
+	padding: 30px;
+	border-radius: 10px;
+	top: 15px;
+	width: 180%;
+	margin: 0 auto;
+}
+#borderLine
+{
+	width: 100%;
+	position: absolute;
+	top: 115px;
+	right: 0px;
+	border-bottom: solid 3px black;
+}
+#MissingWork 
+{
+	width: 360px;
+	margin: 0 auto;
+	padding: 30px;
+	box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
+	border-radius: 10px;
+	background: white;
+	z-index: 1;
+	position:absolute;
+	top: 260px;
+	right: 965px;
+	height: 330px;
+	width: 860px;
+}
+#ToDoWork 
+{
+	width: 360px;
+	margin: 0 auto;
+	padding: 30px;
+	box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
+	border-radius: 10px;
+	background: white;
+	z-index: 1;
+	position:absolute;
+	top: 260px;
+	right: 95px;
+	height: 330px;
+	width: 875px;
+}
+#MissingWorkFinal
+{
+	width: 360px;
+	margin: 0 auto;
+	padding: 30px;
+	box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
+	border-radius: 10px;
+	background: white;
+	z-index: 1;
+	position:absolute;
+	top: 120px;
+	right: 925px;
+	height: 330px;
+	width: 925px;
+}
+#ToDoWorkFinal
+{
+	width: 360px;
+	margin: 0 auto;
+	padding: 30px;
+	box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
+	border-radius: 10px;
+	background: white;
+	z-index: 1;
+	position:absolute;
+	top: 120px;
+	right: 5px;
+	height: 330px;
+	width: 925px;
+}
+#EditButton
+{
+	position: absolute; 
+	top: 40px; 
+	left: 85px; 
+	z-index: 3;
+}
+#editAssignmentInfo
+{
+	width: 50%;
+	max-width: 50%;
+	min-height: 20px;
+	margin: auto;
+	overflow: hidden;
+	margin: 0;
+  	padding: 0;
+  	font-family: 'Quicksand', sans-serif;
+  	color: #444;
+	padding: 10px 12px;
+  	border-radius: 4px;
+  	border: 1px solid #ddd;
+  	font-size: 1em;
+}
+#infoDiv
+{
+	max-width: 65em;
+	word-wrap: break-word; 
+}
+#finalInfo
+{
+	max-width: 40%; 
+	width: 40%; 	
+	top: 95px; 
+	position: relative; 
+	left: 50px;  
+	margin-left: auto; 
+	margin-right: auto;
+	z-index: 1;
+}
+#finalImage
+{
+	position: absolute; 
+	top: 125px; 
+	left: 1000px; 
+	max-width: 25%; 
+	overflow: hidden; 
+	max-height: 25%; 
+	margin-left: auto;
+    margin-right: auto;
+	z-index: 1;
+}
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;600&display=swap');
+
+*{
+	font-family: 'Baloo Paaji 2', cursive;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+}
+
+body{
+	background: #f5f5f5;
+}
+
+.top_navbar{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 60px;
+	background: #fff;
+	box-shadow: 1px 0 2px rgba(0,0,0,0.125);
+	display: flex;
+	align-items: center;
+	z-index: 10;
+}
+
+.top_navbar .menu{
+	width: calc(100% - 250px);
+	padding: 0 25px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.top_navbar .hamburger{
+	font-size: 25px;
+	cursor: pointer;
+	color:black;
+}
+
+.top_navbar .hamburger:hover{
+	color: #149414;
+}
+
+.top_navbar .menu .profile_wrap{
+	padding-left: 25px;
+	border-left: 1px solid #f5f5f5;
+}
+
+.top_navbar .menu .profile img{
+	width: 25px;
+	height: 25px;
+}
+
+.top_navbar .menu .profile{
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+.top_navbar .menu .profile .name{
+	margin: 0 15px;
+}
+
+.hover_collapse .sidebar{
+	width: 70px;
+}
+
+.hover_collapse .sidebar ul li a .text{
+	display: none;
+}
+
+.sidebar{
+	position: fixed;
+	top: 60px;
+	left: 0;
+	width: 250px;
+	height: 100%;
+	background: #149414;
+	z-index: 10;
+}
+
+.sidebar ul li a{
+	display: block;
+	padding: 12px 25px;
+	border-bottom: 1px solid #149414;
+	color: #149414;
+	transition: all 0.2s ease;
+	z-index: 10;
+}
+
+.sidebar ul li a .icon{
+	font-size: 18px;
+	vertical-align: middle;
+	transition: background 0.2s ease;
+	color: black;
+	z-index: 10;
+}
+
+.sidebar ul li a .text{
+	margin-left: 10px;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	z-index: 10;
+}
+
+.sidebar ul li a:hover{
+	background: #0e94d4;
+	color: #fff;
+	z-index: 10;
+}
+
+.click_collapse .sidebar{
+	transition: all 0.1s ease-in;
+	transition: all 0.1s ease-out;
+}
+
+.main_container{
+	margin-top: 60px;
+	margin-left: 70px;
+	padding: 25px;
+	width: calc(100% - 70px);
+}
+
+.main_container .content{
+	background: #fff;
+	padding: 25px;
+	margin-bottom: 25px;
+	text-align: justify;
+}
+
+.click_collapse .main_container{
+	width: calc(100% - 250px);
+	margin-left: 250px;
+	transition: all 0.2s ease;
+}
+#overlay{
+	position: fixed;
+	left: 250px;
+	bottom: 0px;
+	display: none;
+	height: 93.60%;
+	width: 100%;
+	background-color: black;
+	opacity: 50%;
+	z-index: 10;
+	}
+#overlay
+{
+	animation: fadeIn ease .5s;
+	-webkit-animation: fadeIn ease .5s;
+	-moz-animation: fadeIn ease .5s;
+	-o-animation: fadeIn ease .5s;
+	-ms-animation: fadeIn ease .5s;
+	z-index: 10;
+}
+
+
+@keyframes fadeIn {
+	0% {opacity:0;}
+	50% {opacity:.5;}
+}
+
+@-moz-keyframes fadeIn {
+	0% {opacity:0;}
+	50% {opacity:.5;}
+}
+
+@-webkit-keyframes fadeIn {
+	0% {opacity:0;}
+	50% {opacity:.5;}
+}
+
+@-o-keyframes fadeIn {
+	0% {opacity:0;}
+	50% {opacity:.5;}
+}
+
+@-ms-keyframes fadeIn {
+	0% {opacity:0;}
+	50% {opacity:.5;}
+}
+
+
+

@@ -31,6 +31,8 @@ app.get('/sidebar', requireAuth, (req, res) => res.render('sidebar'));
 app.get('/makeClass', requireAuth, (req, res) => res.render('createClassroom'));
 app.get('/joinClass', requireAuth, (req, res) => res.render('joinClassroom'));
 app.get('/createTemplate', requireAuth, (req, res) => res.render('template'));
+app.get('/createAssignment', requireAuth, (req, res) => res.render('createAssignment'));
+
 
 
 

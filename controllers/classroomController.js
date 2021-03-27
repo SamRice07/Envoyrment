@@ -12,7 +12,10 @@ const Auth = require('../controllers/authController')
 const ClassStudentSchema = require('../models/ClassStudentMaster');
 //handles codes error
 var express = require('express')
-var cookieParser = require('cookie-parser')
+var cookieParser = require('cookie-parser');
+const classStudent = require('../models/ClassStudentMaster');
+const { text } = require('express');
+
 const handleErrors = (err) => {
     console.log(err.message, err.code);
     let errors = { code: ''};
@@ -63,7 +66,11 @@ module.exports.joinClassroom = async (req, res) =>
     {
         const classroom = await Classroom.joinClassroom(ClassCode);
         const classId = classroom.classroomId;
-        const ClassStudent = await ClassStudentSchema.create({userid, classId});
+        const ClassStudent = await ClassStudentSchema.createStudent(userid, classId);
+        if(ClassStudent == null)
+        {
+            ClassStudentSchema.create({userid, classId});
+        }
         res.status(200);
         res.json({title: classroom.title, ClassCode: classroom.classroomCode, subject: classroom.subject});
     }
@@ -97,6 +104,7 @@ module.exports.getHtml = async (req, res) =>
     const {code} = req.body;
     try
     {
+        
         const HTML = await Classroom.loadHTML(code);
         res.status(200).json({HTML});    
     }
@@ -110,12 +118,20 @@ module.exports.getHtml = async (req, res) =>
 module.exports.loadClasses = async(req, res) =>
 {
     const studentIdPre = req.signedCookies;
-    const studentId = studentIdPre.userid;
+    const userid = studentIdPre.userid;
     try
     {
-        console.log(studentId);
-        const classLoaded = await ClassStudentSchema.loadClasses(studentId);
-        console.log(classLoaded);
+        const classLoaded = await ClassStudentSchema.loadClasses(userid);
+        var i;
+        var classess = {}
+        for (i = 0; i < classLoaded.length; i++) {
+            var text = classLoaded[i];
+            var classes = await Classroom.getClass(text)  
+            classess += classes;
+        } 
+        res.status(200).json({classroom: classess})
+        
+        
     }
     catch(err)
     {
