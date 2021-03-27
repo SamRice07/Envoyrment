@@ -16,8 +16,19 @@ classStudentSchema.statics.loadClasses = async function(userid)
     const classes = await this.find({userid: userid})
     if(classes)
     {
-        console.log(classes.classId);
+        var classIds = classes.map(item => item.classId)
+        if(classIds)
+        {
+            return classIds;
+        }
+        
     }
+}
+
+classStudentSchema.statics.createStudent = async function(userid, classId)
+{
+    const classStudent = await this.findOne({userid: userid, classId: classId})
+    return classStudent;
 }
 
 const classStudent = mongoose.model('classStudent', classStudentSchema);

@@ -54,10 +54,29 @@ classroomSchema.statics.addHTML = async function(classroomCode, html)
 
 classroomSchema.statics.loadHTML = async function(code)
 {
+    console.log({classroomCode: code});
     const ClassHtml = await this.findOne({classroomCode: code});
     if(ClassHtml)
     {
         return ClassHtml.templateHTML;
+    }
+}
+
+classroomSchema.statics.getClass = async function(classroomId)
+{
+    const Class = await this.findOne({classroomId: classroomId})
+    if(Class)
+    {
+        return Class;
+    }
+}
+
+classroomSchema.statics.getClassId = async function(classCode)
+{
+    const Classroom = await this.findOne(classCode);
+    if(Classroom)
+    {
+        return Classroom.classroomId;
     }
 }
 const Classroom = mongoose.model('classroom', classroomSchema);
